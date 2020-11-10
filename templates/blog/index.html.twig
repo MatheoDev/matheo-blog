@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Blog' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center mt-4 pt-4">
+            <div class="col-10">
+                <h1 class="text-center" style="font-family: 'Satisfy', cursive;">Toutes les publications</h1>
+                <hr class="mt-3">
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+        {% for publi in publis %}
+            <div class="col-3 mb-4 text-center">
+                <div class="polaroid shadow-sm p-3 bg-white rounded">
+                    <img src="http://placehold.it/350x350" alt="" class="mb-2" style="width: 100%">
+                    <span class="lead font-italic">~ {{ publi.createdAt | date('d/m/Y') }} ~</span>
+                </div>
+                <h2 class="text-center mt-4" style="font-family: 'Satisfy', cursive;">{{ publi.title }}</h2>
+                <p class="lead">{{ publi.content }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
